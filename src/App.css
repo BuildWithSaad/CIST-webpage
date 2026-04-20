@@ -1,0 +1,5 @@
+/* App.css - Section specific layout styles can go in component specific CSS files, keeping this mostly empty or for very specific app-wide layouts not covered by index.css */
+
+main {
+  width: 100%;
+}

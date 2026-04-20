@@ -1,0 +1,173 @@
+.sdg-section {
+  background-color: var(--color-bg-card);
+}
+
+/* ── Two-column layout ── */
+.sdg-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+/* ── Left: overview image ── */
+.sdg-overview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sdg-overview-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Right: focused SDGs ── */
+.sdg-focused {
+  display: flex;
+  flex-direction: column;
+}
+
+.sdg-focused-intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Table styles ── */
+.sdg-table-wrapper {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+.sdg-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sdg-table thead {
+  background: var(--color-primary);
+}
+
+.sdg-table thead th {
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sdg-table thead th:first-child {
+  width: 70px;
+  text-align: center;
+}
+
+.sdg-table tbody tr {
+  transition: background 0.2s ease;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+}
+
+.sdg-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sdg-table tbody tr:hover {
+  background: rgba(var(--color-primary-rgb, 88, 28, 135), 0.06);
+}
+
+.sdg-table td {
+  padding: 13px 20px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  border: none;
+}
+
+.sdg-table-sno {
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-primary) !important;
+  font-size: 1rem !important;
+}
+
+.sdg-table-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.sdg-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: inline-block;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sdg-table tbody tr:hover .sdg-icon {
+  transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ── Zebra striping ── */
+  .sdg-table tbody tr:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.04);
+  }
+
+  .sdg-table tbody tr:nth-child(even):hover {
+    background: rgba(var(--color-primary-rgb, 88, 28, 135), 0.06);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .sdg-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .sdg-overview-img {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sdg-layout {
+      gap: 24px;
+      margin-top: 2rem;
+    }
+
+    .sdg-table thead th {
+      padding: 12px 14px;
+      font-size: 0.75rem;
+    }
+
+    .sdg-table td {
+      padding: 11px 14px;
+      font-size: 0.88rem;
+    }
+
+    .sdg-table thead th:first-child {
+      width: 50px;
+    }
+
+    .sdg-focused-intro {
+      font-size: 0.95rem;
+    }
+  }

@@ -1,0 +1,64 @@
+.publications-section {
+  background-color: var(--color-bg-card);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #E5E7EB;
+}
+
+.pub-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+.patents-table {
+  min-width: 600px;
+}
+
+.pub-table th,
+.pub-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #E5E7EB;
+  font-size: 0.95rem;
+  vertical-align: top;
+}
+
+.pub-table th {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pub-table tbody tr {
+  transition: var(--transition);
+}
+
+.pub-table tbody tr:hover {
+  background-color: #F3E8FF;
+}
+
+.authors-text {
+  min-width: 150px;
+}
+
+.title-text {
+  min-width: 250px;
+  line-height: 1.4;
+}
+
+.journal-text {
+  color: var(--color-text-muted);
+}
+
+.issn-text {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+}

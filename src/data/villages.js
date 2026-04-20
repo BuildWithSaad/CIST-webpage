@@ -1,0 +1,17 @@
+export const villages = [
+  { name: "Nakkalapally", district: "Moinabad" },
+  { name: "Tholkatta", district: "Moinabad" },
+  { name: "Yethbar Pally", district: "Moinabad" },
+  { name: "Sriram Nagar", district: "Moinabad" },
+  { name: "Sajjanapally", district: "Moinabad" },
+  { name: "Appojiguda", district: "Moinabad" },
+  { name: "Yelkaguda", district: "Moinabad" },
+  { name: "Marrithanda", district: "Kamareddy" },
+  { name: "Banjepally", district: "Kamareddy" },
+  { name: "Nemaligutta Thanda", district: "Kamareddy" },
+  { name: "Sardapur", district: "Kamareddy" },
+  { name: "Somarampet", district: "Kamareddy" },
+  { name: "Bhilya Nayak Thanda", district: "Suryapet" },
+  { name: "Dornal", district: "Vikarabad" },
+  { name: "Kerali", district: "Vikarabad" },
+];
