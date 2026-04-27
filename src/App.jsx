@@ -14,7 +14,6 @@ import Awards from './components/sections/Awards';
 import Team from './components/sections/Team';
 import Activities from './components/sections/Activities';
 import Gallery from './components/sections/Gallery';
-import Contact from './components/sections/Contact';
 import './App.css';
 
 function App() {
@@ -26,16 +25,15 @@ function App() {
         <Stats />
         <About />
         <VisionMission />
+        <Awards />
         <SDGFocus />
         <Courses />
         <Partners />
         <Villages />
         <Projects />
-        <Awards />
         <Team />
         <Activities />
         <Gallery />
-        <Contact />
       </main>
       <Footer />
     </>

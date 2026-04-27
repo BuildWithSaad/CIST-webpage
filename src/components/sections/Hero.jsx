@@ -1,47 +1,123 @@
-import React from 'react';
-import { FiChevronDown } from 'react-icons/fi';
-import Button from '../ui/Button';
+import React, { useState, useEffect } from 'react';
+import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Badge from '../ui/Badge';
 import { sdgFocusAreas } from '../../data/sdg';
 import './Hero.css';
 
-const Hero = () => {
-  return (
-    <section id="home" className="hero-section">
-      <div className="hero-overlay"></div>
-      
-      <div className="container hero-container relative">
-        <div className="hero-content" data-aos="fade-up">
-          <div className="mb-4 text-center">
-            <Badge label="KG Reddy College of Engineering & Technology | KGRH" color="secondary" />
-          </div>
-          
-          <h1 className="hero-title">
-            Centre for Innovation & <br />
-            <span className="text-secondary">Social Transformation</span>
-          </h1>
-          
-          <p className="hero-subtitle">
-            Innovating for Communities. Engineering for Humanity.
-          </p>
-          
-          <div className="hero-buttons">
-            <Button href="#projects" variant="filled" color="primary">
-              Explore Projects
-            </Button>
-            <Button href="#team" variant="outlined" color="primary">
-              Meet Our Team
-            </Button>
-          </div>
-        </div>
+const heroImages = [
+  '/images/hero/hero-1.jpg',
+  '/images/gallery/gallery-5.jpg',
+  '/images/gallery/gallery-7.jpg',
+  '/images/gallery/gallery-8.jpg'
+];
 
-        <div className="scroll-indicator bounce">
-          <a href="#stats" aria-label="Scroll down">
-            <FiChevronDown size={32} />
+const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    // Trigger fade-in on mount
+    const loadTimer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(loadTimer);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isPaused, currentImage]);
+
+  const handlePrev = () => {
+    setCurrentImage((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentImage((prev) => (prev + 1) % heroImages.length);
+  };
+
+  return (
+    <section 
+      id="home" 
+      className="hero-section"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background slideshow — using <img> for better format compatibility */}
+      {heroImages.map((imgSrc, index) => (
+        <div 
+          key={index}
+          className={`hero-bg-slide ${index === currentImage ? 'active' : ''}`}
+        >
+          <img
+            src={imgSrc}
+            alt=""
+            className="hero-bg-img"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </div>
+      ))}
+
+      {/* Strong dark gradient overlay */}
+      <div className="hero-overlay"></div>
+
+      {/* Navigation Arrows */}
+      <button className="hero-nav-arrow left" onClick={handlePrev} aria-label="Previous image">
+        <FiChevronLeft size={36} />
+      </button>
+      <button className="hero-nav-arrow right" onClick={handleNext} aria-label="Next image">
+        <FiChevronRight size={36} />
+      </button>
+
+      {/* Content */}
+      <div className={`hero-content-wrapper ${loaded ? 'hero-visible' : ''}`}>
+        <div className="hero-badge-row">
+          <Badge label="KG Reddy College of Engineering & Technology | KGRH" color="secondary" />
+        </div>
+        
+        <h1 className="hero-title">
+          <span className="hero-gold">Driving Innovation</span>
+          <br />
+          <span className="hero-white">for Social Impact</span>
+        </h1>
+        
+        <p className="hero-subtitle">
+          Innovating for Communities. Engineering for Humanity.
+        </p>
+        
+        <div className="hero-buttons">
+          <a href="#projects" className="hero-btn hero-btn-gold">
+            Explore Projects
+          </a>
+          <a href="#team" className="hero-btn hero-btn-outline">
+            Meet Our Team
           </a>
         </div>
       </div>
 
+      {/* Dots Navigation */}
+      <div className="hero-dots-container">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            className={`hero-dot ${index === currentImage ? 'active' : ''}`}
+            onClick={() => setCurrentImage(index)}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="scroll-indicator bounce">
+        <a href="#stats" aria-label="Scroll down">
+          <FiChevronDown size={32} />
+        </a>
+      </div>
+
+      {/* SDG Rainbow bar */}
       <div className="sdg-rainbow-bar">
         {sdgFocusAreas.map((sdg, index) => (
           <div 

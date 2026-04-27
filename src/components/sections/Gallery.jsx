@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import SectionHeader from '../ui/SectionHeader';
-import { FiMaximize2, FiX } from 'react-icons/fi';
+import { FiX } from 'react-icons/fi';
 import './Gallery.css';
 
 const galleryItems = [
-  "Village Visit — Sriram Nagar",
-  "Agricultural Problem Scoping",
-  "Community Interaction — Kamareddy",
-  "Award Ceremony — Sydney 2024",
-  "Student Teams — KGRCET Conference",
-  "IIT Madras — Lab2Market 2024",
-  "Solar Fencing Deployment",
-  "IoT Cooling Chamber — Surangal",
-  "STEM Activities",
-  "NGO Partnership Visit",
-  "Hackathon — G Narayanamma Institute",
-  "Village Visit — Bheelya Nayak Thanda"
+  { image: "/images/gallery/gallery-5.jpg" },
+  { image: "/images/gallery/gallery-6.jpg" },
+  { image: "/images/gallery/gallery-7.jpg" },
+  { image: "/images/gallery/gallery-8.jpg" },
+  { image: "/images/gallery/gallery-9.jpg" },
+  { image: "/images/gallery/gallery-10.jpg" },
+  { image: "/images/gallery/gallery-11.jpg" },
+  { image: "/images/gallery/gallery-12.jpg" }
 ];
 
 const Gallery = () => {
@@ -36,20 +32,20 @@ const Gallery = () => {
       <div className="container">
         <SectionHeader preText="Photo" highlightText="Gallery" />
         
-        <div className="masonry-grid">
+        <div className="gallery-grid">
           {galleryItems.map((item, index) => (
             <div 
               key={index} 
-              className={`masonry-item ${index % 5 === 0 || index % 7 === 0 ? 'tall' : ''} ${index % 4 === 0 ? 'wide' : ''}`}
+              className="gallery-card"
               data-aos="fade-up"
               onClick={() => openLightbox(item)}
             >
-              <div className="gallery-placeholder">
-                <span className="placeholder-text">{item}</span>
-              </div>
-              <div className="gallery-overlay">
-                <FiMaximize2 className="expand-icon" size={32} />
-              </div>
+              <img 
+                src={item.image} 
+                alt={`Gallery image ${index + 1}`} 
+                className="gallery-image" 
+                loading="lazy" 
+              />
             </div>
           ))}
         </div>
@@ -61,9 +57,11 @@ const Gallery = () => {
               <FiX size={32} />
             </button>
             <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <div className="lightbox-image-placeholder">
-                <h2>{selectedImage}</h2>
-              </div>
+              <img 
+                src={selectedImage.image} 
+                alt="Enlarged gallery view" 
+                className="lightbox-image" 
+              />
             </div>
           </div>
         )}

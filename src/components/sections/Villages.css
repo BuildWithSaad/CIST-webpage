@@ -1,118 +1,88 @@
 .villages-section {
   background-color: var(--color-bg);
+  padding: 80px 0;
 }
 
-.filter-tabs {
+.map-container-outer {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.map-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 4px solid white;
+}
+
+.villages-leaflet-container {
+  height: 420px;
+  width: 100%;
+  z-index: 10;
+}
+
+.map-loading {
+  height: 420px;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 40px;
-}
-
-.filter-tab {
-  padding: 8px 24px;
-  border-radius: 30px;
-  border: 1px solid var(--color-primary);
-  background-color: white;
-  color: var(--color-text-muted);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.filter-tab.active {
-  background-color: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
-}
-
-.villages-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.village-card {
-  background: white;
-  border-radius: var(--radius-md);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  transition: var(--transition);
-  border: 1px solid transparent;
+  justify-content: center;
+  background-color: #F3F4F6;
+  border-radius: 1rem;
+  color: #6B7280;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
-.village-card .village-icon {
-  margin-bottom: 16px;
-  color: var(--color-text-muted);
-  transition: var(--transition);
+/* Custom Popup Styling */
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 
-.village-name {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  color: var(--color-text);
+.custom-popup .leaflet-popup-content {
+  margin: 16px;
+  min-width: 180px;
 }
 
-/* Hover effects based on district */
-.village-card.district-purple:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-primary);
-  box-shadow: 0 8px 20px rgba(75, 0, 130, 0.15);
-}
-.village-card.district-purple:hover .village-icon { color: var(--color-primary); }
-
-.village-card.district-amber:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-secondary);
-  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
-}
-.village-card.district-amber:hover .village-icon { color: var(--color-secondary); }
-
-.village-card.district-green:hover {
-  transform: translateY(-5px);
-  border-color: #10B981;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.15);
-}
-.village-card.district-green:hover .village-icon { color: #10B981; }
-
-.village-card.district-blue:hover {
-  transform: translateY(-5px);
-  border-color: #3B82F6;
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
-}
-.village-card.district-blue:hover .village-icon { color: #3B82F6; }
-
-
-.fade-in {
-  animation: fadeIn 0.4s ease-in-out;
+.popup-content strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #1F2937;
+  margin-bottom: 6px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.popup-district {
+  display: inline-block;
+  font-size: 0.75rem;
+  background-color: #F3E8FF;
+  color: #6D28D9;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.empty-state {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 40px;
-  color: var(--color-text-muted);
-  font-style: italic;
+.popup-desc {
+  font-size: 0.85rem;
+  color: #4B5563;
+  margin: 0;
+  line-height: 1.4;
 }
 
-@media (max-width: 1024px) {
-  .villages-grid { grid-template-columns: repeat(3, 1fr); }
+/* Make default marker slightly purple via CSS filter */
+.leaflet-marker-icon {
+  filter: hue-rotate(250deg) saturate(2);
 }
 
 @media (max-width: 768px) {
-  .villages-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 480px) {
-  .villages-grid { grid-template-columns: 1fr; }
+  .villages-leaflet-container {
+    height: 300px;
+  }
+  .map-loading {
+    height: 300px;
+  }
 }

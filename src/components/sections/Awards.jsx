@@ -15,28 +15,33 @@ const Awards = () => {
   };
 
   return (
-    <section id="awards" className="awards-section bg-dark">
+    <section id="awards" className="awards-section">
       <div className="container">
         <SectionHeader preText="Awards &" highlightText="Recognition" theme="dark" />
         
-        <div className="awards-scroller">
-          <div className="awards-grid">
-            {awards.map((award, index) => (
-              <div 
-                key={index} 
-                className="award-card glassmorphism-dark"
-                data-aos="zoom-in"
-                data-aos-delay={index * 150}
-              >
-                <div className="award-icon amber-wrapper">
+        <div className="awards-grid">
+          {awards.map((award, index) => (
+            <div 
+              key={index} 
+              className="award-card"
+              data-aos="zoom-in"
+              data-aos-delay={index * 150}
+            >
+              <div className="award-card-image">
+                <img src={award.image} alt={award.title} loading="lazy" />
+                <div className="award-card-dark-overlay"></div>
+              </div>
+              
+              <div className="award-card-body">
+                <div className="award-icon-badge">
                   {getIcon(award.icon)}
                 </div>
-                
+
                 <h3 className="award-title">{award.title}</h3>
                 
                 <div className="award-details">
                   <p className="awarded-to">
-                    <span className="label">Awarded to:</span> <br/>
+                    <span className="award-label">Awarded to:</span><br/>
                     {award.awardedTo}
                   </p>
                   
@@ -46,12 +51,12 @@ const Awards = () => {
                   </div>
                 </div>
                 
-                <div className="award-date badge badge-amber">
+                <div className="award-date-badge">
                   {award.date}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

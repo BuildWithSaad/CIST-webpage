@@ -1,25 +1,15 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import SectionHeader from '../ui/SectionHeader';
-import Badge from '../ui/Badge';
 import { useFilter } from '../../hooks/useFilter';
-import { villages } from '../../data/villages';
-import { FiMapPin } from 'react-icons/fi';
+import { mapData } from '../../data/mapData';
 import './Villages.css';
+
+const VillagesMap = lazy(() => import('../map/VillagesMap'));
 
 const districtDistricts = ["All", "Moinabad", "Kamareddy", "Suryapet", "Vikarabad"];
 
-const getDistrictColor = (district) => {
-  switch (district) {
-    case 'Moinabad': return 'purple';
-    case 'Kamareddy': return 'amber';
-    case 'Suryapet': return 'green';
-    case 'Vikarabad': return 'blue';
-    default: return 'primary';
-  }
-};
-
 const Villages = () => {
-  const { filterValue, setFilterValue, filtered, isEmpty } = useFilter(villages, 'district');
+  const { filterValue, setFilterValue, filtered, isEmpty } = useFilter(mapData, 'district');
 
   return (
     <section id="villages" className="villages-section">
@@ -42,24 +32,17 @@ const Villages = () => {
           ))}
         </div>
 
-        <div className="villages-grid">
-          {filtered.map((village, index) => (
-            <div 
-              key={index} 
-              className={`village-card district-${getDistrictColor(village.district)} fade-in`}
-            >
-              <div className="village-icon">
-                <FiMapPin size={24} />
+        {/* Interactive Map */}
+        <div className="map-container-outer">
+          <Suspense fallback={<div className="map-loading">Loading Map...</div>}>
+            {isEmpty ? (
+              <div className="empty-state">
+                <p>No villages found for this district.</p>
               </div>
-              <h4 className="village-name">{village.name}</h4>
-              <Badge label={village.district} color={getDistrictColor(village.district)} />
-            </div>
-          ))}
-          {isEmpty && (
-            <div className="empty-state">
-              <p>No villages found for this district.</p>
-            </div>
-          )}
+            ) : (
+              <VillagesMap villages={filtered} />
+            )}
+          </Suspense>
         </div>
       </div>
     </section>

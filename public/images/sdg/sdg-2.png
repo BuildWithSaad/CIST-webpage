@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#DDA63A"/>
+  <text x="15" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">2</text>
+  <text x="15" y="55" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">ZERO</text>
+  <text x="15" y="68" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">HUNGER</text>
+  <!-- Bowl with steam -->
+  <g transform="translate(35, 85)">
+    <path d="M10 30 Q10 70 65 70 Q120 70 120 30 Z" fill="white"/>
+    <path d="M10 30 L120 30" stroke="white" stroke-width="4"/>
+    <!-- Steam lines -->
+    <path d="M40 25 Q45 10 40 0" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <path d="M65 25 Q70 10 65 0" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <path d="M90 25 Q95 10 90 0" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

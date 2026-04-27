@@ -27,22 +27,18 @@
 }
 
 .about-logo-container {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: var(--color-bg);
+  width: 250px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
 }
 
-.placeholder-large-logo {
-  width: 100px;
-  height: 100px;
-  background-color: rgba(75, 0, 130, 0.1);
-  border-radius: 50%;
-  object-fit: cover;
+.about-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 1024px) {

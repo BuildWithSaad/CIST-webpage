@@ -22,10 +22,8 @@ const About = () => {
           <div className="about-visual" data-aos="fade-left">
             <GlassCard className="about-card text-center">
               <div className="about-logo-container">
-                <img src="/cist-logo.png" alt="CIST Logo" className="about-logo placeholder-large-logo" />
+                <img src="/images/logos/cist.png" alt="CIST Logo" className="about-logo" />
               </div>
-              <h3 className="mt-4 text-2xl font-bold text-primary">CIST</h3>
-              <p className="text-muted">Centre for Innovation & Social Transformation</p>
             </GlassCard>
           </div>
         </div>

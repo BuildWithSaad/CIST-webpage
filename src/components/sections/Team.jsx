@@ -6,7 +6,7 @@ import { teamMembers } from '../../data/team';
 import { FiMail, FiUser } from 'react-icons/fi';
 import './Team.css';
 
-const roles = ["All", "Leadership", "Faculty", "Fellows"];
+const roles = ["All", "Leadership", "Faculty", "Teaching Assistants"];
 
 const getDepartmentColor = (dept) => {
   switch (dept) {
@@ -31,7 +31,7 @@ const filterFn = (data, filterKey, filterValue) => {
   return data.filter(item => {
     if (filterValue === "Leadership") return item.role === "leadership";
     if (filterValue === "Faculty") return item.role === "faculty";
-    if (filterValue === "Fellows") return item.role === "fellow";
+    if (filterValue === "Teaching Assistants") return item.role === "teaching-assistant";
     return true;
   });
 };
@@ -66,7 +66,7 @@ const Team = () => {
               {leadership.map((member, index) => (
                 <div key={member.id} className="team-card leadership-card" data-aos="fade-up" data-aos-delay={index * 100}>
                   <div className="member-photo-wrapper">
-                    {member.photo ? <img src={member.photo} alt={member.name} /> : <PhotoPlaceholder />}
+                    {member.photo ? <img src={member.photo} alt={member.name} loading="lazy" /> : <PhotoPlaceholder />}
                     <div className="leadership-badge">
                       {member.position === 'Head' ? '👑' : '⭐'}
                     </div>
@@ -90,7 +90,7 @@ const Team = () => {
                 <div key={member.id} className="team-card faculty-card" data-aos="fade-up" data-aos-delay={(index % 4) * 100}>
                   <div className="faculty-card-inner">
                     <div className="member-photo-wrapper sm">
-                      {member.photo ? <img src={member.photo} alt={member.name} /> : <PhotoPlaceholder />}
+                      {member.photo ? <img src={member.photo} alt={member.name} loading="lazy" /> : <PhotoPlaceholder />}
                     </div>
                     <div className="member-info text-center mt-4">
                       <h4 className="member-name">{member.name}</h4>
@@ -98,7 +98,7 @@ const Team = () => {
                       
                       <div className="flex justify-center gap-2 mb-3">
                         <Badge label={member.department} color={getDepartmentColor(member.department)} />
-                        <Badge label={member.role === 'fellow' ? 'Teaching Fellow' : 'Faculty'} color="light" />
+                        <Badge label={member.role === 'teaching-assistant' ? 'Teaching Assistant' : 'Faculty'} color="light" />
                       </div>
                       
                       <a href={`mailto:${member.email}`} className="text-secondary inline-flex items-center gap-2 text-sm">

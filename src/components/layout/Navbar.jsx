@@ -12,7 +12,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 80);
       
       // Update active link based on scroll position
-      const sections = ['home', 'about', 'courses', 'projects', 'team', 'activities', 'contact'];
+      const sections = ['home', 'about', 'courses', 'projects', 'team', 'activities'];
       let currentSection = 'home';
       
       for (const section of sections) {
@@ -48,16 +48,13 @@ const Navbar = () => {
     { id: 'projects', label: 'Projects' },
     { id: 'team', label: 'Team' },
     { id: 'activities', label: 'Activities' },
-    { id: 'contact', label: 'Contact' },
   ];
 
   return (
     <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <div className="navbar-logo">
-          <img src="/cist-logo.png" alt="CIST Logo" className="logo-img placeholder-logo" />
-          <span className="logo-text">CIST</span>
-          <img src="/kgr-logo.png" alt="KGR Logo" className="logo-img placeholder-logo" />
+          <img src="/images/logos/kg-reddy.png" alt="KG Reddy Logo" className="logo-img" style={{height: '3rem', width: 'auto'}} loading="lazy" />
         </div>
 
         {/* Desktop Nav */}
@@ -79,7 +76,7 @@ const Navbar = () => {
 
         <div className="navbar-actions">
           <a href="https://kgr.ac.in" target="_blank" rel="noopener noreferrer" className="btn-admissions desktop-only">
-            Join CIST
+            Collaborate With Us
           </a>
           
           {/* Mobile Menu Toggle */}
@@ -105,7 +102,7 @@ const Navbar = () => {
           ))}
           <li>
             <a href="https://kgr.ac.in" target="_blank" rel="noopener noreferrer" className="btn-admissions mobile-admissions" onClick={closeMobileMenu}>
-              Join CIST
+              Collaborate With Us
             </a>
           </li>
         </ul>

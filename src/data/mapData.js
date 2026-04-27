@@ -1,0 +1,17 @@
+export const mapData = [
+  { name: "Nakkalapally", district: "Moinabad", coordinates: [17.34, 78.26], description: "Partnered for community development and health awareness." },
+  { name: "Tholkatta", district: "Moinabad", coordinates: [17.32, 78.28], description: "Focus on clean water and rural innovation." },
+  { name: "Yethbar Pally", district: "Moinabad", coordinates: [17.35, 78.29], description: "Initiatives for sustainable agriculture." },
+  { name: "Sriram Nagar", district: "Moinabad", coordinates: [17.33, 78.27], description: "Primary hub for student-led rural projects." },
+  { name: "Sajjanapally", district: "Moinabad", coordinates: [17.31, 78.25], description: "Solar electrification and digital literacy." },
+  { name: "Appojiguda", district: "Moinabad", coordinates: [17.36, 78.28], description: "Women empowerment and skill development." },
+  { name: "Yelkaguda", district: "Moinabad", coordinates: [17.32, 78.30], description: "Sanitation and hygiene improvement campaigns." },
+  { name: "Marrithanda", district: "Kamareddy", coordinates: [18.32, 78.36], description: "Agricultural problem scoping and tech intervention." },
+  { name: "Banjepally", district: "Kamareddy", coordinates: [18.30, 78.34], description: "Deployed low-cost cooling chambers." },
+  { name: "Nemaligutta Thanda", district: "Kamareddy", coordinates: [18.33, 78.33], description: "Community interaction and socio-economic surveys." },
+  { name: "Sardapur", district: "Kamareddy", coordinates: [18.29, 78.37], description: "Educational outreach and STEM activities." },
+  { name: "Somarampet", district: "Kamareddy", coordinates: [18.31, 78.35], description: "Renewable energy awareness programs." },
+  { name: "Bhilya Nayak Thanda", district: "Suryapet", coordinates: [17.14, 79.62], description: "Rural innovation startup focus area." },
+  { name: "Dornal", district: "Vikarabad", coordinates: [17.34, 77.91], description: "Deployed solar fencing for local farms." },
+  { name: "Kerali", district: "Vikarabad", coordinates: [17.32, 77.89], description: "NGO partnership and sustainable rural planning." },
+];

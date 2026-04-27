@@ -9,7 +9,10 @@ const Footer = () => {
         <div className="footer-grid">
           {/* Column 1 */}
           <div className="footer-col brand-col">
-            <h3 className="footer-logo">CIST</h3>
+            <div className="footer-logos" style={{display: 'flex', gap: '1rem', marginBottom: '1rem', alignItems: 'center'}}>
+              <img src="/images/logos/kg-reddy.png" alt="KG Reddy Logo" style={{height: '3.5rem', width: 'auto'}} loading="lazy" />
+              <img src="/images/logos/cist.png" alt="CIST Logo" style={{height: '3.5rem', width: 'auto'}} loading="lazy" />
+            </div>
             <p className="tagline">Innovating for Communities. Engineering for Humanity.</p>
             <p className="institution-name">KG Reddy College of Engineering & Technology</p>
             <p className="institution-status">An Autonomous Institution</p>
@@ -26,7 +29,7 @@ const Footer = () => {
               <li><a href="#projects">Projects</a></li>
               <li><a href="#team">Team</a></li>
               <li><a href="#activities">Activities</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#gallery">Gallery</a></li>
             </ul>
           </div>
 
