@@ -3,7 +3,6 @@ import SectionHeader from '../ui/SectionHeader';
 import GlassCard from '../ui/GlassCard';
 import Badge from '../ui/Badge';
 import { partners } from '../../data/partners';
-import { FiBriefcase } from 'react-icons/fi';
 import './Partners.css';
 
 const Partners = () => {
@@ -15,8 +14,8 @@ const Partners = () => {
         <div className="partners-grid">
           {partners.map((partner, index) => (
             <GlassCard key={index} className="partner-card" data-aos="fade-up" data-aos-delay={index * 100}>
-              <div className="partner-icon">
-                <FiBriefcase size={24} />
+              <div className="partner-logo-container">
+                <img src={partner.logo} alt={`${partner.name} logo`} className="partner-logo" />
               </div>
               <h3 className="partner-name">{partner.name}</h3>
               <p className="partner-area">{partner.area}</p>

@@ -4,15 +4,11 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer id="footer" className="footer">
       <div className="container">
         <div className="footer-grid">
           {/* Column 1 */}
           <div className="footer-col brand-col">
-            <div className="footer-logos" style={{display: 'flex', gap: '1rem', marginBottom: '1rem', alignItems: 'center'}}>
-              <img src="/images/logos/kg-reddy.png" alt="KG Reddy Logo" style={{height: '3.5rem', width: 'auto'}} loading="lazy" />
-              <img src="/images/logos/cist.png" alt="CIST Logo" style={{height: '3.5rem', width: 'auto'}} loading="lazy" />
-            </div>
             <p className="tagline">Innovating for Communities. Engineering for Humanity.</p>
             <p className="institution-name">KG Reddy College of Engineering & Technology</p>
             <p className="institution-status">An Autonomous Institution</p>
@@ -36,12 +32,12 @@ const Footer = () => {
           {/* Column 3 */}
           <div className="footer-col contact-col">
             <h4>Contact</h4>
-            <p>+91 90006 33008</p>
-            <p>info@kgr.ac.in</p>
+            <p>+91 9700166315</p>
+            <p>samyukthapenta@kgr.ac.in</p>
             <p>Beside Moinabad PS, Chilkur (V),<br />Moinabad (M), Hyderabad, Telangana</p>
             <div className="social-links mt-4">
-              <a href="#" aria-label="Instagram"><FiInstagram /></a>
-              <a href="#" aria-label="LinkedIn"><FiLinkedin /></a>
+              <a href="https://www.instagram.com/cist_kgrcet/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FiInstagram /></a>
+              <a href="https://www.linkedin.com/company/center-for-innovation-and-social-transformation-cist-kgrcet/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
               <a href="#" aria-label="YouTube"><FiYoutube /></a>
               <a href="#" aria-label="Twitter"><FiTwitter /></a>
             </div>

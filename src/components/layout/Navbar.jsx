@@ -12,7 +12,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 80);
       
       // Update active link based on scroll position
-      const sections = ['home', 'about', 'courses', 'projects', 'team', 'activities'];
+      const sections = ['home', 'about', 'courses', 'projects', 'team', 'activities', 'footer'];
       let currentSection = 'home';
       
       for (const section of sections) {
@@ -48,6 +48,7 @@ const Navbar = () => {
     { id: 'projects', label: 'Projects' },
     { id: 'team', label: 'Team' },
     { id: 'activities', label: 'Activities' },
+    { id: 'footer', label: 'Contact Us' },
   ];
 
   return (
