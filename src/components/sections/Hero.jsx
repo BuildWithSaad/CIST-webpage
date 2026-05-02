@@ -39,15 +39,15 @@ const Hero = () => {
   };
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="hero-section"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Background slideshow — using <img> for better format compatibility */}
       {heroImages.map((imgSrc, index) => (
-        <div 
+        <div
           key={index}
           className={`hero-bg-slide ${index === currentImage ? 'active' : ''}`}
         >
@@ -74,20 +74,18 @@ const Hero = () => {
 
       {/* Content */}
       <div className={`hero-content-wrapper ${loaded ? 'hero-visible' : ''}`}>
-        <div className="hero-badge-row">
-          <Badge label="KG Reddy College of Engineering & Technology | KGRH" color="secondary" />
-        </div>
-        
+
+
         <h1 className="hero-title">
-          <span className="hero-gold">Driving Innovation</span>
+          <span className="hero-gold">Centre For Innovation</span>
           <br />
-          <span className="hero-white">for Social Impact</span>
+          <span className="hero-white">And Social Transformation</span>
         </h1>
-        
+
         <p className="hero-subtitle">
-          Innovating for Communities. Engineering for Humanity.
+          Driving Innovation for Social Impact
         </p>
-        
+
         <div className="hero-buttons">
           <a href="#projects" className="hero-btn hero-btn-gold">
             Explore Projects
@@ -120,12 +118,12 @@ const Hero = () => {
       {/* SDG Rainbow bar */}
       <div className="sdg-rainbow-bar">
         {sdgFocusAreas.map((sdg, index) => (
-          <div 
-            key={sdg.id} 
-            className="sdg-segment" 
-            style={{ 
+          <div
+            key={sdg.id}
+            className="sdg-segment"
+            style={{
               backgroundColor: sdg.color,
-              animationDelay: `${index * 0.1}s` 
+              animationDelay: `${index * 0.1}s`
             }}
           ></div>
         ))}

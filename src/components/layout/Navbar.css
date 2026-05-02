@@ -161,8 +161,10 @@
     color: #1F2937;
   }
   
-  .mobile-admissions {
+  .mobile-nav-links a.btn-admissions {
+    color: white !important;
     text-align: center;
+    border-bottom: none;
     margin-top: 10px;
   }
 }

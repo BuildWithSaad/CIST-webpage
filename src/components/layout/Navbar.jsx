@@ -55,7 +55,9 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <div className="navbar-logo">
-          <img src="/images/logos/kg-reddy.png" alt="KG Reddy Logo" className="logo-img" style={{height: '3rem', width: 'auto'}} loading="lazy" />
+          <a href="#home">
+            <img src="/images/logos/kg-reddy.png" alt="KG Reddy Logo" className="logo-img" style={{height: '3rem', width: 'auto', transform: 'scale(1.8)', transformOrigin: 'left center'}} loading="lazy" />
+          </a>
         </div>
 
         {/* Desktop Nav */}

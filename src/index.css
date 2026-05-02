@@ -38,6 +38,8 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -46,6 +48,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,4 +102,39 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Filter Tabs Shared Styles */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-tab {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filter-tab:hover {
+  background-color: rgba(75, 0, 130, 0.08);
+  transform: translateY(-2px);
+}
+
+.filter-tab.active {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(75, 0, 130, 0.25);
+  transform: translateY(-2px);
 }
