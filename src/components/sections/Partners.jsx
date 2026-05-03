@@ -13,7 +13,7 @@ const Partners = () => {
         
         <div className="partners-grid">
           {partners.map((partner, index) => (
-            <GlassCard key={index} className="partner-card" data-aos="fade-up" data-aos-delay={index * 100}>
+            <GlassCard key={index} className="partner-card">
               <div className="partner-logo-container">
                 <img src={partner.logo} alt={`${partner.name} logo`} className="partner-logo" />
               </div>

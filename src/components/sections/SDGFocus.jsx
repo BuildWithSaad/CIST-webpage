@@ -18,7 +18,7 @@ const SDGFocus = () => {
 
         <div className="sdg-layout">
           {/* ── Left column: SDG image + Details card ── */}
-          <div className="sdg-left-col" data-aos="fade-right">
+          <div className="sdg-left-col">
             <img
               src="/images/sdg/sdg-all.jpg"
               alt="United Nations 17 Sustainable Development Goals"
@@ -81,7 +81,7 @@ const SDGFocus = () => {
           </div>
 
           {/* ── Right column: clickable SDG list ── */}
-          <div className="sdg-right-col" data-aos="fade-left">
+          <div className="sdg-right-col">
 
             <div className="sdg-list" role="listbox" aria-label="Focused SDG list">
               {sdgFocusAreas.map((sdg, index) => (

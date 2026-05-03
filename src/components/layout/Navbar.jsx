@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { gsap } from 'gsap';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -9,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      setScrolled(window.scrollY > 50);
       
       // Update active link based on scroll position
       const sections = ['home', 'about', 'courses', 'projects', 'team', 'activities', 'footer'];
@@ -32,6 +33,28 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (scrolled) {
+      gsap.to(".navbar", {
+        padding: "10px 0",
+        backgroundColor: "rgba(255, 255, 255, 0.95)",
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+        backdropFilter: "blur(10px)",
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    } else {
+      gsap.to(".navbar", {
+        padding: "15px 0",
+        backgroundColor: "rgba(255, 255, 255, 1)",
+        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.05)",
+        backdropFilter: "blur(0px)",
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    }
+  }, [scrolled]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);

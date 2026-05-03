@@ -9,7 +9,7 @@ const About = () => {
     <section id="about" className="about-section">
       <div className="container">
         <div className="about-grid">
-          <div className="about-text" data-aos="fade-right">
+          <div className="about-text">
             <SectionHeader preText="About" highlightText="CIST" />
             
             <p className="about-paragraph text-muted mb-8 text-lg">
@@ -19,7 +19,7 @@ const About = () => {
             <Badge label="An Autonomous Institution | EAPCET Code: KGRH" color="primary" />
           </div>
           
-          <div className="about-visual" data-aos="fade-left">
+          <div className="about-visual">
             <GlassCard className="about-card text-center">
               <div className="about-logo-container">
                 <img src="/images/logos/cist.png" alt="CIST Logo" className="about-logo" />

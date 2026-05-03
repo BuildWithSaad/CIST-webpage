@@ -259,10 +259,7 @@
   }
 }
 
-/* ═══════════════════════════════════════════
-   Responsive — Tablet
-   ═══════════════════════════════════════════ */
-
+/* ── Responsive — Tablet ── */
 @media (max-width: 1024px) {
   .sdg-layout {
     grid-template-columns: 1fr;
@@ -285,10 +282,7 @@
   }
 }
 
-/* ═══════════════════════════════════════════
-   Responsive — Small phones
-   ═══════════════════════════════════════════ */
-
+/* ── Responsive — Small phones ── */
 @media (max-width: 600px) {
   .sdg-layout {
     gap: 24px;

@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '../ui/SectionHeader';
 import { courses } from '../../data/courses';
 import { FiLayers, FiGlobe, FiZap, FiCpu, FiTrendingUp, FiTarget, FiSettings, FiAward } from 'react-icons/fi';
 import './Courses.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const filters = ['All', 'Year I', 'Year III', 'Year IV'];
 
@@ -20,6 +24,28 @@ const courseIcons = {
 
 const Courses = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+
+  useEffect(() => {
+    // Clear existing ScrollTriggers to prevent issues on re-renders (like filter changes)
+    // but the user's specific request is for the section entrance.
+    // If we want it to re-animate on filter change, we'd need to handle that.
+    // For now, let's just do the section entrance.
+    gsap.fromTo(".modern-course-card", 
+      { y: 40, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".courses-section",
+          start: "top 80%",
+          once: true
+        }
+      }
+    );
+  }, [activeFilter]); // Re-animate when filter changes for a smooth list transition
 
   const getYearAccent = (year) => {
     switch (year) {
@@ -49,7 +75,7 @@ const Courses = () => {
         <SectionHeader preText="Courses" highlightText="Offered" />
 
         {/* Filters */}
-        <div className="course-filters" data-aos="fade-up">
+        <div className="course-filters">
           {filters.map(filter => (
             <button
               key={filter}
@@ -63,14 +89,12 @@ const Courses = () => {
 
         {/* Course Cards Grid */}
         <div className="course-grid">
-          {filteredCourses.map((course, index) => {
+          {filteredCourses.map((course) => {
             const IconComp = courseIcons[course.id] || FiLayers;
             return (
               <div
                 key={course.id}
-                className={`modern-course-card ${getYearAccent(course.year)}`}
-                data-aos="fade-up"
-                data-aos-delay={index * 80}
+                className={`modern-course-card course-card ${getYearAccent(course.year)}`}
               >
                 {/* Colored top accent strip */}
                 <div className="card-accent-strip"></div>

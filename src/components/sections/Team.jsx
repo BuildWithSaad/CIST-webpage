@@ -64,7 +64,7 @@ const Team = () => {
           {leadership.length > 0 && (
             <div className="leadership-grid mb-8">
               {leadership.map((member, index) => (
-                <div key={member.id} className="team-card leadership-card" data-aos="fade-up" data-aos-delay={index * 100}>
+                <div key={member.id} className="team-card leadership-card">
                   <div className="member-photo-wrapper">
                     {member.photo ? <img src={member.photo} alt={member.name} loading="lazy" /> : <PhotoPlaceholder />}
                     <div className="leadership-badge">
@@ -87,7 +87,7 @@ const Team = () => {
           {others.length > 0 && (
             <div className="faculty-grid">
               {others.map((member, index) => (
-                <div key={member.id} className="team-card faculty-card" data-aos="fade-up" data-aos-delay={(index % 4) * 100}>
+                <div key={member.id} className="team-card faculty-card">
                   <div className="faculty-card-inner">
                     <div className="member-photo-wrapper sm">
                       {member.photo ? <img src={member.photo} alt={member.name} loading="lazy" /> : <PhotoPlaceholder />}

@@ -1,13 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '../ui/SectionHeader';
 import Badge from '../ui/Badge';
 import { fundedProjects, deployedProjects, ongoingProjects } from '../../data/projects';
 import { FiMapPin } from 'react-icons/fi';
 import './Projects.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Projects = () => {
   const tabs = ["All", "Funded", "Deployed", "Ongoing"];
   const [activeTab, setActiveTab] = useState("All");
+
+  useEffect(() => {
+    gsap.fromTo(".project-card", 
+      { y: 80, opacity: 0, scale: 0.95 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        scale: 1,
+        duration: 1, 
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".projects-section",
+          start: "top 75%",
+          once: true
+        }
+      }
+    );
+  }, [activeTab]);
 
   const getStatusBadge = (status) => {
     switch (status) {

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Badge from '../ui/Badge';
 import { sdgFocusAreas } from '../../data/sdg';
 import './Hero.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const heroImages = [
   '/images/hero/hero-1.jpg',
@@ -13,20 +17,87 @@ const heroImages = [
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [loaded, setLoaded] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    // Trigger fade-in on mount
-    const loadTimer = setTimeout(() => setLoaded(true), 100);
-    return () => clearTimeout(loadTimer);
+    // Entrance Animation
+    const tl = gsap.timeline();
+
+    tl.fromTo(".hero-title", 
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    )
+    .fromTo(".hero-subtitle",
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+      0.3
+    )
+    .fromTo(".hero-buttons",
+      { scale: 0.9, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" },
+      0.5
+    );
+
+    // Parallax Animation
+    gsap.to(".hero-bg-slide", {
+      y: 100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    gsap.to(".hero-content-wrapper", {
+      y: -50,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
   }, []);
+
+  useEffect(() => {
+    // Cross-fade slides
+    const slides = document.querySelectorAll('.hero-bg-slide');
+    
+    slides.forEach((slide, index) => {
+      if (index === currentImage) {
+        // Fade in active slide
+        gsap.to(slide, {
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.inOut",
+          zIndex: 1
+        });
+        
+        // Ken Burns zoom effect
+        gsap.fromTo(slide.querySelector('.hero-bg-img'),
+          { scale: 1.15 },
+          { scale: 1.05, duration: 6, ease: "linear" }
+        );
+      } else {
+        // Fade out inactive slides
+        gsap.to(slide, {
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.inOut",
+          zIndex: 0
+        });
+      }
+    });
+  }, [currentImage]);
 
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 4000);
+    }, 5000); // Increased slightly for smoother feel
     return () => clearInterval(timer);
   }, [isPaused, currentImage]);
 
@@ -49,7 +120,7 @@ const Hero = () => {
       {heroImages.map((imgSrc, index) => (
         <div
           key={index}
-          className={`hero-bg-slide ${index === currentImage ? 'active' : ''}`}
+          className={`hero-bg-slide hero-bg-slide-${index}`}
         >
           <img
             src={imgSrc}
@@ -73,9 +144,7 @@ const Hero = () => {
       </button>
 
       {/* Content */}
-      <div className={`hero-content-wrapper ${loaded ? 'hero-visible' : ''}`}>
-
-
+      <div className="hero-content-wrapper">
         <h1 className="hero-title">
           <span className="hero-gold">Centre For Innovation</span>
           <br />

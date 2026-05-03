@@ -18,11 +18,15 @@
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 48px;
   border-radius: 24px;
+  opacity: 0; /* GSAP will handle entrance */
 }
 
 .vm-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  transform: translateY(-12px) scale(1.02);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12),
+              0 18px 36px -18px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .vm-card > * {
@@ -53,6 +57,12 @@
   opacity: 0.03; /* Reduced opacity */
   pointer-events: none;
   z-index: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.vm-card:hover .vision-bg-icon {
+  transform: scale(1.1) rotate(-5deg);
+  opacity: 0.05;
 }
 
 .vm-header {
@@ -71,6 +81,12 @@
   justify-content: center;
   color: white;
   flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vm-card:hover .vm-icon-wrapper {
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .purple-wrapper {
@@ -96,10 +112,15 @@
 }
 
 .vm-accent-line {
-  height: 4px;
-  width: 60px; /* Made slightly wider */
+  height: 5px; /* Slightly thicker */
+  width: 45px;
   border-radius: 4px;
   background: linear-gradient(90deg, var(--color-primary), #D8B4FE);
+  transition: width 0.4s ease;
+}
+
+.vm-card:hover .vm-accent-line {
+  width: 80px;
 }
 
 .amber-line {

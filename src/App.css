@@ -3,3 +3,8 @@
 main {
   width: 100%;
 }
+
+/* Ensure sections start hidden for GSAP scroll reveal */
+section:not(#home) {
+  opacity: 0;
+}

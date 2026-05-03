@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '../ui/SectionHeader';
 import { FiX } from 'react-icons/fi';
 import './Gallery.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const galleryItems = [
   { image: "/images/gallery/gallery-1.jpg" },
@@ -23,6 +27,24 @@ const galleryItems = [
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    gsap.fromTo(".gallery-card", 
+      { scale: 0.9, opacity: 0 },
+      { 
+        scale: 1, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".gallery-section",
+          start: "top 85%",
+          once: true
+        }
+      }
+    );
+  }, []);
+
   const openLightbox = (item) => {
     setSelectedImage(item);
     document.body.style.overflow = 'hidden';
@@ -43,7 +65,6 @@ const Gallery = () => {
             <div 
               key={index} 
               className="gallery-card"
-              data-aos="fade-up"
               onClick={() => openLightbox(item)}
             >
               <img 

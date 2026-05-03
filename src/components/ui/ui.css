@@ -4,6 +4,24 @@
 .section-header h2 {
   font-family: 'Poppins', sans-serif;
 }
+
+.reveal-container {
+  overflow: hidden;
+  display: inline-flex;
+  vertical-align: bottom;
+}
+
+.reveal-text {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.reveal-word-space {
+  display: inline-block;
+  width: 0.28em;
+}
+
 .section-header .highlight {
   position: relative;
   display: inline-block;

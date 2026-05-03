@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '../ui/SectionHeader';
 import { FiMap, FiGlobe, FiZap, FiCheck } from 'react-icons/fi';
 import './Activities.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Activities = () => {
   const outreach = [
@@ -22,6 +26,27 @@ const Activities = () => {
     "Sahyog with KASE"
   ];
 
+  useEffect(() => {
+    // Animate cards
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".activities-section",
+        start: "top 80%",
+        once: true
+      }
+    });
+
+    tl.fromTo(".activity-col", 
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, stagger: 0.2 }
+    )
+    .fromTo(".act-list li",
+      { x: -20, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.5, stagger: 0.1 },
+      "-=0.4" // Start animating items before cards fully finish
+    );
+  }, []);
+
   return (
     <section id="activities" className="activities-section bg-dark">
       <div className="container">
@@ -29,7 +54,8 @@ const Activities = () => {
         
         <div className="activities-grid mt-12">
           {/* Column 1 */}
-          <div className="activity-col" data-aos="fade-up" data-aos-delay="0">
+          <div className="activity-col activity-card">
+            <div className="act-accent-line"></div>
             <div className="act-icon-wrapper act-purple">
               <FiMap size={32} />
             </div>
@@ -42,7 +68,8 @@ const Activities = () => {
           </div>
           
           {/* Column 2 */}
-          <div className="activity-col" data-aos="fade-up" data-aos-delay="200">
+          <div className="activity-col activity-card">
+            <div className="act-accent-line"></div>
             <div className="act-icon-wrapper act-green">
               <FiGlobe size={32} />
             </div>
@@ -55,7 +82,8 @@ const Activities = () => {
           </div>
 
           {/* Column 3 */}
-          <div className="activity-col" data-aos="fade-up" data-aos-delay="400">
+          <div className="activity-col activity-card">
+            <div className="act-accent-line"></div>
             <div className="act-icon-wrapper act-amber">
               <FiZap size={32} />
             </div>

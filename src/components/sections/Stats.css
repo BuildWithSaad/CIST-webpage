@@ -1,13 +1,34 @@
+/* ═══════════════════════════════════════════
+   STATS SECTION — Modern & Premium
+   ═══════════════════════════════════════════ */
+
 .stats-section {
   background-color: var(--color-primary);
-  padding: 60px 0;
+  padding: 100px 0;
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background glow for the section */
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .stat-card {
@@ -15,32 +36,74 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 50px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* GSAP will handle entrance */
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .stat-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 2rem;
+  margin-bottom: 28px;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-card:hover .stat-icon {
+  background: linear-gradient(135deg, #a855f7, #f97316);
+  color: white;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  transform: scale(1.1) rotate(5deg);
+  border-color: transparent;
 }
 
 .stat-number {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   line-height: 1;
-  margin-bottom: 8px;
-  background: linear-gradient(to right, #FFFFFF, var(--color-secondary));
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #FFD700, #FFA500, #f97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  letter-spacing: -1px;
 }
 
 .stat-label {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .stat-number { font-size: 3.2rem; }
+  .stat-card { padding: 40px 20px; }
 }
 
 @media (max-width: 900px) {
@@ -50,8 +113,11 @@
 }
 
 @media (max-width: 600px) {
+  .stats-section { padding: 60px 0; }
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
+  .stat-card { padding: 40px 20px; }
   .stat-number { font-size: 3rem; }
 }

@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import GlassCard from '../ui/GlassCard';
 import { FiEye, FiUploadCloud, FiCheckCircle } from 'react-icons/fi';
 import './VisionMission.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const VisionMission = () => {
+  useEffect(() => {
+    gsap.fromTo(".vm-card", 
+      { y: 60, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 1, 
+        stagger: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".vision-section",
+          start: "top 80%",
+          once: true
+        }
+      }
+    );
+  }, []);
+
   return (
     <section id="vision" className="vision-section">
       <div className="container">
         <div className="vm-grid">
-          <GlassCard className="vm-card vision-card" data-aos="fade-up" data-aos-delay="0">
+          <GlassCard className="vm-card vision-card">
             <div className="vision-bg-icon">
               <FiEye />
             </div>
@@ -40,7 +62,7 @@ const VisionMission = () => {
 
           </GlassCard>
 
-          <GlassCard className="vm-card mission-card" data-aos="fade-up" data-aos-delay="200">
+          <GlassCard className="vm-card mission-card">
             <div className="vm-header">
               <div className="vm-icon-wrapper amber-wrapper">
                 <FiUploadCloud size={32} />

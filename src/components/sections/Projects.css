@@ -24,13 +24,13 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  opacity: 0; /* GSAP will handle entrance */
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(75, 0, 130, 0.15);
 }
 
