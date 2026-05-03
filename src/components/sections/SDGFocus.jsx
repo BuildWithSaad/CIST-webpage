@@ -4,13 +4,17 @@ import { sdgFocusAreas } from '../../data/sdg';
 import './SDGFocus.css';
 
 const SDGFocus = () => {
-  const [selectedId, setSelectedId] = useState(8);
+  const [selectedId, setSelectedId] = useState(2);
   const selectedSDG = sdgFocusAreas.find((s) => s.id === selectedId);
 
   return (
     <section id="sdg" className="sdg-section">
       <div className="container">
         <SectionHeader preText="United Nations" highlightText="Sustainable Development Goals" />
+
+        <p className="sdg-focused-intro">
+          Out of 17 Sustainable Development Goals, KGRCET is mainly focused on the following areas:
+        </p>
 
         <div className="sdg-layout">
           {/* ── Left column: SDG image + Details card ── */}
@@ -76,11 +80,8 @@ const SDGFocus = () => {
             )}
           </div>
 
-          {/* ── Right column: Intro text + clickable SDG list ── */}
+          {/* ── Right column: clickable SDG list ── */}
           <div className="sdg-right-col" data-aos="fade-left">
-            <p className="sdg-focused-intro">
-              Out of 17 Sustainable Development Goals, KGRCET is mainly focused on the following areas:
-            </p>
 
             <div className="sdg-list" role="listbox" aria-label="Focused SDG list">
               {sdgFocusAreas.map((sdg, index) => (

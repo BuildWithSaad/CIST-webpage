@@ -9,15 +9,35 @@ const VisionMission = () => {
       <div className="container">
         <div className="vm-grid">
           <GlassCard className="vm-card vision-card" data-aos="fade-up" data-aos-delay="0">
+            <div className="vision-bg-icon">
+              <FiEye />
+            </div>
+            
             <div className="vm-header">
               <div className="vm-icon-wrapper purple-wrapper">
                 <FiEye size={32} />
               </div>
-              <h3 className="vm-title">Vision</h3>
+              <div className="vm-title-wrapper">
+                <h3 className="vm-title">Vision</h3>
+                <div className="vm-accent-line"></div>
+              </div>
             </div>
-            <p className="vm-text">
-              To become a centre of Excellence that fosters an ecosystem to promote engagement, innovation, and research leading to sustainable socio-economic development in the community.
-            </p>
+            
+            <ul className="mission-list vision-list">
+              <li>
+                <FiCheckCircle className="check-icon" />
+                <span>To become a recognized centre of Excellence that fosters an active ecosystem.</span>
+              </li>
+              <li>
+                <FiCheckCircle className="check-icon" />
+                <span>To promote community engagement, continuous innovation, and collaborative research.</span>
+              </li>
+              <li>
+                <FiCheckCircle className="check-icon" />
+                <span>To lead initiatives that drive sustainable socio-economic development in the community.</span>
+              </li>
+            </ul>
+
           </GlassCard>
 
           <GlassCard className="vm-card mission-card" data-aos="fade-up" data-aos-delay="200">
@@ -25,7 +45,10 @@ const VisionMission = () => {
               <div className="vm-icon-wrapper amber-wrapper">
                 <FiUploadCloud size={32} />
               </div>
-              <h3 className="vm-title">Mission</h3>
+              <div className="vm-title-wrapper">
+                <h3 className="vm-title">Mission</h3>
+                <div className="vm-accent-line amber-line"></div>
+              </div>
             </div>
             <ul className="mission-list">
               <li>

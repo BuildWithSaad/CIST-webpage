@@ -12,14 +12,16 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 /* ── Left column ── */
 .sdg-left-col {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
+  position: sticky;
+  top: 100px;
 }
 
 .sdg-overview-img {
@@ -28,6 +30,12 @@
   object-fit: contain;
   border-radius: var(--radius-md);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sdg-overview-img:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
 /* ── Right column ── */
@@ -40,7 +48,8 @@
   font-size: 1.05rem;
   color: var(--color-text-muted);
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 /* ═══════════════════════════════════════════

@@ -13,10 +13,13 @@
   flex-direction: column;
   background: white;
   border: 1px solid #E5E7EB;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .partner-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary, #F59E0B);
 }
 
 .partner-logo-container {
@@ -32,6 +35,11 @@
   max-width: 180px;
   max-height: 100%;
   object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.partner-card:hover .partner-logo {
+  transform: scale(1.1);
 }
 
 .partner-name {

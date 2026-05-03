@@ -397,7 +397,7 @@
 }
 
 .award-back-btn {
-  margin-top: 18px;
+  margin-top: auto;
   padding: 9px 0;
   border: 1.5px solid rgba(255, 255, 255, 0.15);
   background: transparent;
@@ -425,6 +425,6 @@
   }
 
   .award-flip-container {
-    height: 420px;
+    height: 500px;
   }
 }

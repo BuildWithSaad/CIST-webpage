@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiInstagram, FiLinkedin, FiYoutube, FiTwitter } from 'react-icons/fi';
+import { FiInstagram, FiLinkedin, FiYoutube } from 'react-icons/fi';
+import { FaXTwitter } from 'react-icons/fa6';
 import './Footer.css';
 
 const Footer = () => {
@@ -38,8 +39,8 @@ const Footer = () => {
             <div className="social-links mt-4">
               <a href="https://www.instagram.com/cist_kgrcet/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FiInstagram /></a>
               <a href="https://www.linkedin.com/company/center-for-innovation-and-social-transformation-cist-kgrcet/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
-              <a href="#" aria-label="YouTube"><FiYoutube /></a>
-              <a href="#" aria-label="Twitter"><FiTwitter /></a>
+              <a href="https://www.youtube.com/user/kgrcet" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FiYoutube /></a>
+              <a href="https://x.com/kgrcetengineers" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)"><FaXTwitter /></a>
             </div>
           </div>
 
