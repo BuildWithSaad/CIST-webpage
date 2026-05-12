@@ -8,5 +8,5 @@ export const teamMembers = [
   { id: 8, name: "Mr. R. Pranay Raj", designation: "Teaching Assistant", department: "CIST", email: "pranay.r@kgr.ac.in", position: "", role: "teaching-assistant", photo: "/images/team/pranay.jpg" },
   { id: 9, name: "Ms. K. Niharika", designation: "Teaching Assistant", department: "CIST", email: "niharika.k@kgr.ac.in", position: "", role: "teaching-assistant", photo: "/images/team/niharika.jpg" },
   { id: 10, name: "Mr. K. Sachin", designation: "Teaching Assistant", department: "CIST", email: "sachinraj.k@kgr.ac.in", position: "", role: "teaching-assistant", photo: "/images/team/sachin.jpg" },
-  { id: 11, name: "Ms. A. Preethi", designation: "Teaching Assistant", department: "CIST", email: "addetlapreethi@kgr.ac.in", position: "", role: "teaching-assistant", photo: null },
+  { id: 11, name: "Ms. A. Preethi", designation: "Teaching Assistant", department: "CIST", email: "addetlapreethi@kgr.ac.in", position: "", role: "teaching-assistant", photo: "/images/team/preethi.jpg" },
 ];
